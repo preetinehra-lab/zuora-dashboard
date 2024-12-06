@@ -1,0 +1,276 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: #f4f6f7;
+  word-wrap: break-word; /* Ensures text inside the table wraps */
+  overflow-wrap: break-word; /* Additional handling for text wrapping */
+}
+
+/* Title Bar */
+.title-bar {
+  background-color: #34495e;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hamburger Icon */
+.title-bar .hamburger-icon {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/* ZUORA */
+.title-bar .company-logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+
+/* Predictive Analytics Dashboard (Centered) */
+.title-bar .dashboard-name {
+  font-size: 1.5em;
+  font-weight: normal;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* User Profile */
+.title-bar .user-profile {
+  font-size: 0.9em;
+  color: white;
+  text-align: right;
+}
+
+/* Side Panel */
+.side-panel {
+  position: fixed;
+  top: 60px; /* Adjust to align below the title bar */
+  left: 0;
+  width: 200px;
+  height: calc(100% - 60px); /* Fill the rest of the screen */
+  background-color: #2c3e50;
+  padding-top: 20px;
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  overflow-y: auto;
+}
+
+.side-panel.active { /* Change from .open to .active */
+  transform: translateX(0);
+}
+
+.side-panel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-panel ul li {
+  margin: 15px 0;
+}
+
+.side-panel ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.side-panel ul li a:hover {
+  background-color: #34495e;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px; /* Room for the side panel */
+  padding: 20px;
+  margin-top: 80px; /* Adjusted to align below the title bar */
+}
+
+/* Filters Block */
+.filters {
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+  font-weight: bold;
+}
+
+.filters input, .filters select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Pie Chart and Line Chart Section */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.pie-chart, .line-chart {
+  width: 45%;
+}
+
+.pie-chart canvas, .line-chart canvas {
+  width: 100%;
+  height: 250px;
+}
+
+/* Titles for Charts */
+.pie-chart h3, .line-chart h3 {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* High Risk Customers Block */
+.high-risk-customers {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.high-risk-customers h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+/* Customer Risk Breakdown Table */
+.customer-risk-table {
+  margin-top: 30px;
+  overflow-x: auto; /* Allow horizontal scroll only if necessary */
+}
+
+.customer-risk-table table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  table-layout: fixed; /* Prevents columns from resizing dynamically */
+}
+
+.customer-risk-table th, .customer-risk-table td {
+  padding: 12px 18px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 2px solid #ddd;
+  font-size: 1em;
+  word-wrap: break-word; /* Ensures that content within cells wraps */
+  white-space: normal; /* Allows text to wrap and prevent overflow */
+  text-overflow: ellipsis; /* Truncates long content with ellipsis if it overflows */
+}
+
+.customer-risk-table th {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  color: white;
+  font-weight: bold;
+}
+
+.customer-risk-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.customer-risk-table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Table Title */
+.customer-risk-table h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Popup (Customer Details) */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.popup-content {
+  position: relative;
+}
+
+.popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+/* Row Background for Risk Levels */
+.high {
+  background-color: #f8d7da; /* Red for High */
+}
+
+.medium {
+  background-color: #fff3cd; /* Yellow for Medium */
+}
+
+.low {
+  background-color: #d4edda; /* Green for Low */
+}
+
+/* Styling for Home Page Content */
+.home-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home-page-content h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #e74c3c; /* High risk color */
+}
+
+.home-page-content .high-risk-customers {
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+
+/* Hide other categories in customer risk table for Home Page */
+.home-page-table .low,
+.home-page-table .medium {
+  display: none;
+}

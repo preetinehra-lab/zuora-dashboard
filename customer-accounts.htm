@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Accounts - Predictive Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+    <!-- Title Bar -->
+    <div class="title-bar">
+        <div class="title-content">
+            <span class="hamburger-icon" onclick="toggleSidePanel()">&#9776;</span>
+            <span class="company-logo">ZUORA</span>
+        </div>
+        <div class="dashboard-name">Predictive Analytics Dashboard</div>
+        <div class="user-profile">User: John Doe</div>
+    </div>
+
+    <!-- Side Panel -->
+    <div id="sidePanel" class="side-panel">
+        <ul>
+            <li><a href="home.htm">Home</a></li>
+            <li><a href="customer-accounts.htm">Customer Accounts</a></li>
+            <li><a href="dashboard.htm">Insights</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="customer-risk-table">
+            <h3>Customer Risk Breakdown</h3>
+            <table id="customerTable">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Segment</th>
+                        <th>Risk Score</th>
+                        <th>Category</th>
+                        <th>Churn Probability</th>
+                        <th>Recommended Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data rows dynamically generated -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
